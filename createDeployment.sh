@@ -4,4 +4,4 @@
 set -e
 
 npm run pack
-mv build/package/* ./*
+mv build/package/* ./
