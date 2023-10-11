@@ -377,7 +377,9 @@ export const Routes = [{
      * Gets contents of the user controller file (used when express is enabled).
      */
     protected static getControllerTemplate(isEsm: boolean): string {
-        return `import { AppDataSource } from '../data-source'
+        return `import { AppDataSource } from "../data-source${
+            isEsm ? ".js" : ""
+        }"
 import { NextFunction, Request, Response } from "express"
 import { User } from "../entity/User${isEsm ? ".js" : ""}"
 
@@ -688,7 +690,7 @@ Steps to run this project:
 
         if (!packageJson.devDependencies) packageJson.devDependencies = {}
         Object.assign(packageJson.devDependencies, {
-            "ts-node": "10.7.0",
+            "ts-node": "10.9.1",
             "@types/node": "^16.11.10",
             typescript: "4.5.2",
         })
